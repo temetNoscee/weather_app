@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/info_card.dart';
-import 'package:weather/weather.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -11,14 +10,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
-  void initState() {
-    super.initState();
-    //ws = new WeatherFactory(key);
-  }
-
-  void getWeather() async {}
-
-  @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -28,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
-                onPressed: () => {},
+                onPressed: () => {Navigator.of(context).pushNamed('/location')},
                 icon: const Icon(
                   Icons.location_on_outlined,
                   size: 25.0,
@@ -37,13 +28,13 @@ class _HomeScreenState extends State<HomeScreen> {
             const Expanded(
                 child: Center(
                     child: Text(
-              'Kaynarca',
+              " selectedCity.city",
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Color.fromARGB(255, 66, 73, 87)),
             ))),
             IconButton(
-                onPressed: () => {},
+                onPressed: () => {Navigator.of(context).pushNamed('/settings')},
                 icon: const Icon(
                   Icons.settings_outlined,
                   size: 25.0,
@@ -85,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(
                   width: screenWidth * 0.03,
                 ),
-                const InfoCard(text: 'humidity')
+                const InfoCard(text: '')
               ],
             ),
           ],
